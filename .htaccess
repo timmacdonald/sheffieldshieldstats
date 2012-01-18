@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /cricket
+	RewriteRule seasons/([0-9]+) site/controllers/seasons.php?s=$1
+	RewriteRule players/([0-9]+) site/controllers/players.php?s=$1
+	RewriteRule search.php site/controllers/search.php
+	
+</IfModule>
+
+order deny,allow
+deny from all
+allow from 127.0.0.1
+php_flag register_globals 0
+php_flag magic_quotes_gpc 0
+php_flag magic_quotes_runtime 0
+
