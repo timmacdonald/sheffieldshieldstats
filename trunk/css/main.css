@@ -1,0 +1,36 @@
+body
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style: normal;
+	background-color: #e0f1e0;
+	padding:0px;
+	margin:0px;
+}
+.main
+{
+	margin-left:15px;
+	margin-right:15px;
+}
+.heading_1 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #000000;
+}
+table
+{
+	border:1px solid #0000ff;
+	padding:0px;
+	border-collapse:collapse;
+	background-color:#ffffff;
+	height:120%;
+}
+.tables_heading 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	background-color: #99ccff;
+	border-bottom:1px solid #0000ff;
+}
