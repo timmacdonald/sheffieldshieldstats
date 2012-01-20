@@ -8,8 +8,8 @@
 </IfModule>
 
 order deny,allow
-deny from all
-allow from 127.0.0.1
+#deny from all
+#allow from 127.0.0.1
 php_flag register_globals 0
 php_flag magic_quotes_gpc 0
 php_flag magic_quotes_runtime 0
