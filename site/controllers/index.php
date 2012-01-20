@@ -1,4 +1,7 @@
 <?php
+$index = new indexController();
+$index->startSite();
+
 class indexController
 {	
 	function templateView()
