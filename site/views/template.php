@@ -8,7 +8,7 @@ class templateView
 	?>
     
 		<html>
-			<?php require("/../includes/header.php"); ?>
+			<?php require("../includes/header.php"); ?>
 			<body>
 				<?php require($code); ?>
 			</body>

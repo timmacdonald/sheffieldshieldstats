@@ -3,6 +3,7 @@
 ?>
 	<div class="main">
 		<p class="heading_1">Search Player</p>
+		
 		<p>
 			<?php
 				if (!empty($data['searchReturn']))

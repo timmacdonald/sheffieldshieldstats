@@ -11,7 +11,7 @@ class searchController
 	
 	function modelConnections()
 	{
-		require('/../includes/modelConnections.php');
+		require('../includes/modelConnections.php');
 		return $mc;
 	}
 	
@@ -29,27 +29,26 @@ class searchController
 		$order = null;
 		
 		$sql = $searchModel->buildReadConditions($select, $table, $where, $order);
-		
 		return $sql;	
 	}
 	
 	function searchView()
 	{
-		require('/../views/search.php');
+		require('../views/search.php');
 		$searchView = new searchView();
 		return $searchView;		
 	}
 	
 	function templateView()
 	{		
-		require ('/../views/template.php');
+		require ('../views/template.php');
 		$templateView = new templateView();
 		return $templateView;
 	}
 	
 	function location()
 	{
-		return "/../views/search.php";
+		return "../views/search.php";
 	}	
 		
 	function search($search)
