@@ -3,7 +3,7 @@ class indexController
 {	
 	function templateView()
 	{		
-		require ('/../views/template.php');
+		require ('../views/template.php');
 		$templateView = new templateView();
 		return $templateView;
 	}
@@ -23,7 +23,7 @@ class indexController
 	
 	function modelConnections()
 	{
-		require('/../includes/modelConnections.php');
+		require('../includes/modelConnections.php');
 		return $mc;
 	}
 	
@@ -34,7 +34,7 @@ class indexController
 	
 	function location()
 	{
-		return "/../views/index.php";
+		return "../views/index.php";
 	}
 	
 	function startSite()

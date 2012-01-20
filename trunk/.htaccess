@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteBase /cricket
+	#RewriteBase /sheffieldshieldstats
 	RewriteRule seasons/([0-9]+) site/controllers/seasons.php?s=$1
 	RewriteRule players/([0-9]+) site/controllers/players.php?s=$1
 	RewriteRule search.php site/controllers/search.php
