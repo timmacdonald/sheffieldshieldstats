@@ -22,7 +22,7 @@ class crudModel
 			$sql .= " ORDER BY ";
 			$sql .= $this->buildReadConditionsDeeper($order);
 		}
-				
+		
 		return $sql;
 	}
 	
