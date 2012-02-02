@@ -1,6 +1,6 @@
 <?php
 
-$search = new searchController(mysql_real_escape_string(htmlentities($_POST['search'])));
+$search = new searchController($_POST['search']);
 
 class searchController
 {
@@ -52,11 +52,12 @@ class searchController
 		return "../views/search.php";
 	}	
 		
-	function search($search)
+	function search($tmpSearch)
 	{
 		$mc = $this->modelConnections();
 		$dbc = $mc->databaseConnection();
 		$searchModel = $mc->crudModel();
+		$search = htmlentities($tmpSearch);
 		$sql = $this->sqlSearch($searchModel, $search);
 						
 		$data['searchReturn'] = $searchModel->read($sql, $dbc->mysqli($dbc->host(), $dbc->user(), $dbc->password(), $dbc->database()));
