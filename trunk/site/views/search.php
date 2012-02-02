@@ -1,9 +1,11 @@
-<?php
+﻿<?php
 
 ?>
 	<div class="main">
 		<p class="heading_1">Search Player</p>
-		
+		<p>
+		<?php echo "Search Results for: <span class='heading_2'>" . stripslashes($data['test']) . "</span><br />"; ?>
+		</p>
 		<p>
 			<?php
 				if (!empty($data['searchReturn']))

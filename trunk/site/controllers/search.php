@@ -1,6 +1,6 @@
 <?php
 
-$search = new searchController($_GET['search']);
+$search = new searchController(mysql_real_escape_string(htmlentities($_POST['search'])));
 
 class searchController
 {
@@ -26,6 +26,7 @@ class searchController
 		$select = array ("*");
 		$table = array ("players");
 		$where = array ("first_name LIKE '%$search%' OR ", "middle_names LIKE '%$search%' OR ", "surname LIKE '%$search%'");
+		//$where = array ("first_name = $search");
 		$order = null;
 		
 		$sql = $searchModel->buildReadConditions($select, $table, $where, $order);
@@ -59,7 +60,7 @@ class searchController
 		$sql = $this->sqlSearch($searchModel, $search);
 						
 		$data['searchReturn'] = $searchModel->read($sql, $dbc->mysqli($dbc->host(), $dbc->user(), $dbc->password(), $dbc->database()));
-		
+		$data['test'] = $search;
 		$title = $this->title();
 		
 		$templateView = $this->templateView();

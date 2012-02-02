@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 ?>
 	<div class='main'>
@@ -8,7 +8,7 @@
 			individuals performances through Sheffield Shield history.
 		</p>
 		<p class='bodycontent'>
-			<form name='search' action='search.php' method='get'>
+			<form name='search' action='search.php' method='post'>
 				Search Players: 
 				<input type='text' name='search' size='30'/>
 				<input type='submit' value='Search' />
