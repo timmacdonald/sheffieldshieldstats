@@ -6,11 +6,18 @@ body
 	padding:0px;
 	margin:0px;
 }
+
+p
+{
+	margin-top:0px;
+}
+
 .main
 {
 	margin-left:15px;
 	margin-right:15px;
 }
+
 .heading_1 
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -18,6 +25,12 @@ body
 	font-weight: bold;
 	color: #000000;
 }
+
+.heading_2
+{
+	font-weight: bold;
+}
+
 table
 {
 	border:1px solid #0000ff;

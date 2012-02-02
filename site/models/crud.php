@@ -54,8 +54,9 @@ class crudModel
 				$temp[$a] = $row;
 				++$a;
 			}
+			
+			$result->close();
 		}
-		$result->close();
 		return $temp;
 	}
 }
