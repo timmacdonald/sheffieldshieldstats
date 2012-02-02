@@ -7,7 +7,8 @@ class modelConnections
 		
 	function databaseConnection()
 	{
-		require('../../../../dbc/shieldcricket/database.php');
+		require('../../../dbc/shieldcricket/database.php');
+		//require('../../../dbc/shieldcricket/test.php');
 		$dbc = new databaseConnection();
 		return $dbc;
 	}
