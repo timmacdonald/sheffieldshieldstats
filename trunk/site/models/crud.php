@@ -56,7 +56,9 @@ class crudModel
 			}
 			
 			$result->close();
+			
 		}
+		
 		return $temp;
 	}
 }

@@ -1,7 +1,5 @@
 <?php
 
-$mc = new modelConnections();
-
 class modelConnections
 {
 		

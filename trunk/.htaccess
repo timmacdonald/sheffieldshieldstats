@@ -2,9 +2,10 @@
 	RewriteEngine On
 	#RewriteBase /sheffieldshieldstats
 	RewriteRule seasons/([0-9]+) site/controllers/seasons.php?s=$1
-	RewriteRule players/([0-9]+) site/controllers/players.php?s=$1
-	RewriteRule search.php site/controllers/search.php
+	RewriteRule players/([0-9]+) site/controllers/players.php?p=$1
+	RewriteRule search site/controllers/search.php
 	RewriteRule index.php site/controllers/index.php
+	
 	
 </IfModule>
 

@@ -1,17 +1,19 @@
 <?php
 
-$search = new searchController($_POST['search']);
+$search = new searchController(htmlentities($_POST['search'], ENT_COMPAT, "UTF-8"), $_POST['wordLimit']);
 
 class searchController
 {
-	function __construct($search)
+	function __construct($search, $wordLimit)
 	{
-		$this->search($search);
+		$this->search($search, $wordLimit);
+		
 	}
 	
 	function modelConnections()
 	{
 		require('../includes/modelConnections.php');
+		$mc = new modelConnections();
 		return $mc;
 	}
 	
@@ -20,16 +22,17 @@ class searchController
 		return "Search Players";
 	}
 	
-	function sqlSearch($searchModel, $search)
+	function sqlSearch($searchModel)
 	{
-		//sql statement to get all seasons
-		$select = array ("*");
+		//sql statement for each search term looking for
+				
+		$select = array ("id, ", "first_name, ", "middle_names, ", "surname");
 		$table = array ("players");
-		$where = array ("first_name LIKE '%$search%' OR ", "middle_names LIKE '%$search%' OR ", "surname LIKE '%$search%'");
-		//$where = array ("first_name = $search");
+		$where = null;
 		$order = null;
-		
 		$sql = $searchModel->buildReadConditions($select, $table, $where, $order);
+				
+		//want to return all players. return queries.
 		return $sql;	
 	}
 	
@@ -50,20 +53,36 @@ class searchController
 	function location()
 	{
 		return "../views/search.php";
-	}	
-		
-	function search($tmpSearch)
+	}
+	
+	function relevantSearch()
 	{
+		require('../controllers/relevantSearch.php');
+		$relSearch = new relevantSearch();
+		return $relSearch;
+	}
+		
+	function search($search, $wordLimit)
+	{
+		//get required connections (model connection, database, crud and search optimisation)
 		$mc = $this->modelConnections();
 		$dbc = $mc->databaseConnection();
 		$searchModel = $mc->crudModel();
-		$search = htmlentities($tmpSearch);
-		$sql = $this->sqlSearch($searchModel, $search);
-						
-		$data['searchReturn'] = $searchModel->read($sql, $dbc->mysqli($dbc->host(), $dbc->user(), $dbc->password(), $dbc->database()));
-		$data['test'] = $search;
-		$title = $this->title();
+		$relSearch = $this->relevantSearch();
 		
+		//explode search into an array for each word
+		$searchArray = $relSearch->explode($search, $wordLimit);
+		
+		//get all Sql statements for each part of the search Array
+		$sql = $this->sqlSearch($searchModel);
+		
+		//get search result of all players
+		$data['return'] = $searchModel->read($sql, $dbc->mysqli($dbc->host(), $dbc->user(), $dbc->password(), $dbc->database()));
+		
+		$data['searchResult'] = $relSearch->calculateRelevancy($searchArray, $data['return'], $wordLimit);		
+		$data['searchTerm'] = $search;
+		$title = $this->title();
+		unset($data['return']);
 		$templateView = $this->templateView();
 		$templateView->templateAll($title, $this->location(), $data);
 	}
