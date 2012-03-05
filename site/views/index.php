@@ -8,7 +8,8 @@
 			individuals performances through Sheffield Shield history.
 		</p>
 		<p class='bodycontent'>
-			<form name='search' action='search.php' method='post'>
+			<form name='search' action='search' method='post' accept-charset='utf-8'>
+				<input type='hidden' name='wordLimit' value='1' />
 				Search Players: 
 				<input type='text' name='search' size='30'/>
 				<input type='submit' value='Search' />

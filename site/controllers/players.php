@@ -1,6 +1,6 @@
 <?php
 
-$player = new playersController($_GET['s']);
+$player = new playersController($_GET['p']);
 
 class playersController
 {

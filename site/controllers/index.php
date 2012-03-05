@@ -27,6 +27,7 @@ class indexController
 	function modelConnections()
 	{
 		require('../includes/modelConnections.php');
+		$mc = new modelConnections();
 		return $mc;
 	}
 	
