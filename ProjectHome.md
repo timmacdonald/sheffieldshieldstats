@@ -1,0 +1,1 @@
+A dynamic database enabling a user to search through historical Sheffield Shield stats and customise searches based upon individual players or groups of players.
